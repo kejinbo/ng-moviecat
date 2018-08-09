@@ -1,0 +1,43 @@
+<h1 class="page-header">{{title}}</h1>
+<div class="list-group">
+	<a href="javascript:void(0);" class="list-group-item" ng-repeat="data in datas track by $index">
+		<div class="media">
+			<div class="media-left">
+				<img class="media-object" ng-src="{{data.images.small}}" alt="">
+			</div>
+			<div class="media-body">
+				<h3 class="media-heading">{{data.title}}</h3>
+				<p>导演：<span ng-repeat="director in data.directors">{{director.name}}<span ng-if="!$last">、</span></span>
+				</p>
+				<p>演员：<span ng-repeat="cast in data.casts">{{cast.name}}{{!$last?'、':''}}</span></p>
+				<p>描述：{{data.genres.join('、')}}&nbsp;&nbsp;&nbsp;&nbsp;<span>上映时间：{{data.year}}年</span></p>
+				<span class="badge">{{data.rating.average}}</span>
+			</div>
+		</div>
+	</a>
+</div>
+<div ng-if="!loading">
+	<nav >
+		<ul class="pager">
+			<li ng-class="{disabled:currentPage<=1}" class="previous" ng-click="go(currentPage-1)"><a>&larr; Older</a></li>
+			<li ng-class="{disabled:currentPage>=totalPages}" class="next" ng-click="go(currentPage+1)"><a>Newer &rarr;</a></li>
+		</ul>
+	</nav>
+	<p>总共{{totalCount}}条记录 &nbsp;&nbsp;<span>第{{currentPage}}页/{{totalPages}}页</span></p>
+</div>
+<div ng-if="loading">
+	<div class="loading">
+		<div class="sk-cube-grid">
+			<div class="sk-cube sk-cube1"></div>
+			<div class="sk-cube sk-cube2"></div>
+			<div class="sk-cube sk-cube3"></div>
+			<div class="sk-cube sk-cube4"></div>
+			<div class="sk-cube sk-cube5"></div>
+			<div class="sk-cube sk-cube6"></div>
+			<div class="sk-cube sk-cube7"></div>
+			<div class="sk-cube sk-cube8"></div>
+			<div class="sk-cube sk-cube9"></div>
+		</div>
+	</div>
+</div>
+

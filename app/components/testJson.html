@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>testJsonp</title>
+</head>
+<body>
+<div id="showData"></div>
+<script src="http.js"></script>
+<script>
+	$jsonp('https://api.douban.com/v2/movie/in_theaters',{
+		count:10,
+		start:5
+	}, function (data) {
+		document.getElementById('showData').innerHTML = JSON.stringify(data);
+	})
+</script>
+</body>
+</html>
