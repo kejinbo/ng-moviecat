@@ -1,1 +1,1 @@
-# Angular Boilerplate
+## 获取豆瓣电影接口，实现的电影评分的单页面应用
